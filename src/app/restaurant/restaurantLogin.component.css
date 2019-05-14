@@ -1,4 +1,4 @@
-:root {
+/* :root {
     --input-padding-x: 1.5rem;
     --input-padding-y: .75rem;
 }
@@ -59,7 +59,7 @@ body {
     display: block;
     width: 100%;
     margin-bottom: 0;
-    /* Override default `<label>` margin */
+    /* Override default `<label>` margin 
     line-height: 1.5;
     color: #495057;
     border: 1px solid transparent;
@@ -107,4 +107,4 @@ body {
 .btn-facebook {
     color: white;
     background-color: #3b5998;
-}
+} */

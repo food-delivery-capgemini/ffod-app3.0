@@ -1,7 +1,7 @@
 import { EventManagerPlugin } from '@angular/platform-browser/src/dom/events/event_manager';
 
 export class Restaurant {
-    estaurantname:string;
+    restaurantname:string;
     email:string;
     password:string;
     contact:number;

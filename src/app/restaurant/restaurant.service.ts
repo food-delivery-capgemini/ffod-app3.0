@@ -4,7 +4,7 @@ import { Restaurant } from './restaurant';
 import { Observable } from 'rxjs';
 @Injectable()
 export class RestaurantService{
-     baseUrl="http://localhost:8080";
+     baseUrl="http://localhost:8089";
     headers = new HttpHeaders({'Access-Control-Allow-Origin' : '*'})
     constructor(private http:HttpClient){
 
@@ -21,7 +21,7 @@ export class RestaurantService{
 
       signUpDetailsOfRestaurant(restaurant:Restaurant):Observable<Restaurant>{
         console.log(restaurant);
-        return this.http.post<Restaurant>(this.baseUrl+"/signup",restaurant,{headers: this.headers})
+        return this.http.post<Restaurant>(this.baseUrl+"/restro/signup",restaurant,{headers: this.headers})
 
     }
     signInDetailsOfRestaurant(email:string):Observable<Restaurant> {
