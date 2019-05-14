@@ -1,0 +1,55 @@
+<!-- user requests -->
+<div class="container">
+    <div class="jumbotron">
+        <h1 class="display-4">ORDER TRACKING</h1>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">USER-ID</th>
+                    <th scope="col">ORDER-ID</th>
+                    <th scope="col">DELIVERY-BOY-ID</th>
+                    <th scope="col">ORDER-DETAILS</th>
+                    <th scope="col">STATUS</th>
+                    <th scope="col">CANCEL-ORDER</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let userRequest of userRequests">
+                    <th scope="row">{{userRequest.userid}}</th>
+                    <td>{{userRequest.orderid}}</td>
+                    <td>{{userRequest.dbid}}</td>
+                    <td>{{userRequest.orderdetails}}</td>
+                    <th scope="row">{{userRequest.status}}</th>
+                    <td> <button type="button" class="btn btn-danger">Cancel Order</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<!-- new resturant requests -->
+<div class="container">
+    <div class="jumbotron">
+        <h1 class="display-4">NEW RESTURANT REQUESTS</h1>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">RESTURANT-NAME</th>
+                    <th scope="col">LOCATION</th>
+                    <th scope="col">OWNER NAME</th>
+                    <th scope="col">CONTACT</th>
+                    <th scope="col">CANCEL-ORDER</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let res of resturant">
+                    <th scope="row">{{res.resturantName}}</th>
+                    <td>{{res.location}}</td>
+                    <td>{{res.owner}}</td>
+                    <td>{{res.contact}}</td>
+                    <td> <button type="button" class="btn btn-primary">ACCEPT</button> &nbsp;
+                        <button type="button" class="btn btn-danger">REJECT</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

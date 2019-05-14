@@ -1,0 +1,124 @@
+<div class="container" style="width:40%">
+    <h4 class="text-center">Add a Restaurant</h4>
+    {{ restroForm.value | json}}
+
+    <form class="form-horizontal" [formGroup] = "restroForm" (ngSubmit) = "onSubmit()" >
+        <div class="form-group" >
+            <label class="form-label">Restaurant Name</label>
+            <input type="text" class="form-control" id="restaurantname" placeholder="Enter Restaurant Name" name="restaurantname"
+            formControlName = "restaurantname" [class.is-invalid]="restaurantname.touched && restaurantname.invalid" required/>
+
+            <div [class.d-none] = "restaurantname.untouched || restaurantname.valid" class="text-danger">
+                Restaurant name is required
+            </div> 
+        </div>
+
+        <div class="form-group">
+            <label class="form-label">Email-Id</label>
+            <input type="email" class="form-control" id="email" placeholder="Enter e-mail"  name="email" 
+            formControlName = "email" [class.is-invalid]="email.touched && email.invalid" required/>
+            <div [class.d-none] = "email.untouched || email.valid" class="text-danger">
+                Email is required
+            </div> 
+        </div>
+
+        <div class="form-group">
+            <label class="form-label">Password</label>
+            <input type="password" class="form-control" id="password" placeholder="Enter password"
+            pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+            title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
+             name="password" 
+             formControlName = "password" [class.is-invalid]="password.touched && password.invalid" required />
+             <div [class.d-none] = "password.untouched || password.valid" class="text-danger">
+                Password is required
+            </div> 
+            <div class="text-danger" *ngIf="password.errors?.pattern" >Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters</div>
+
+
+        </div>
+
+         <div class="form-group">
+            <label class="form-label">Contact</label>
+            <input type="number" class="form-control"  
+                placeholder="Enter Mobile Number"  name="contact" 
+                 formControlName = "contact" pattern="^\d{10}$" [class.is-invalid]="contact.touched && contact.invalid" required />
+                 <div [class.d-none] = "contact.untouched || contact.valid" class="text-danger">Contact number is required</div>
+                    <div class="text-danger" *ngIf="contact.errors?.pattern" >Contact number must be 10 digit</div>
+         
+        </div> 
+
+        <!-- <div class="form-group">
+                <label class="form-label">Contact</label>
+
+                <input type="number" class="form-control" name="phone" placeholder="Contact Number"  formControlName = "phone" pattern="^\d{10}$" [class.is-invalid]="phone.touched && phone.invalid" required />
+                <div *ngIf="phone.errors && phone.touched ">
+                        <div class="text-danger" *ngIf="phone.errors?.required">Phone number is required</div>
+                        <div class="text-danger" *ngIf="phone.errors?.pattern" >Phone no must be 10 digit</div>
+                        
+                                </div>
+              
+            </div> -->
+
+        <div class="form-group">
+            <label class="form-label">City</label>
+            <select class="form-control" id="city" name="city" 
+            formControlName = "city" [class.is-invalid]="city.touched && city.invalid" required>
+                                    <option value="">---select---</option>
+                                    <option value="Pune">Pune</option>
+                                    <option value="Mumbai">Mumbai</option>
+                                    <option value="Banglore">Banglore</option>
+                        </select>
+                      
+            <div [class.d-none] = "city.untouched || city.valid" class="text-danger">
+                    Please select city
+            </div> 
+        </div>
+
+        <br><br>
+
+
+
+        <div class="container">
+            <h2>services</h2>
+            
+            <form>
+                <div class="checkbox">
+                        <div class="form-group">
+                                
+                    <label><input type="checkbox" value="breakfast" id="breakfast" name="breakfast">Breakfast</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <label><input type="checkbox" value="lunch" id="lunch" name="lunch">Lunch</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <label><input type="checkbox" value="dinner"id="dinner"  name="dinner">Dinner</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <label><input type="checkbox" value="tiffin" id="tiffin" name="tiffin">Tiffin Service</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                
+                </div>
+            </div>
+            </form>
+        
+        </div>
+        <br><br>
+        
+
+
+        <h1>Location</h1>
+
+        <div id="googleMap" style="width:100%;height:400px;"></div>
+
+        <script>
+            function myMap() {
+                var mapProp = {
+                    center: new google.maps.LatLng(51.508742, -0.120850),
+                    zoom: 5,
+                };
+                var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
+            }
+        </script>
+
+        <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY&callback=myMap"></script>
+
+
+        <button type="submit" class="btn btn-block btn-primary">Register</button>
+
+
+    </form>
+
+</div>
