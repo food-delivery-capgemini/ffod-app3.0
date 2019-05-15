@@ -18,6 +18,14 @@ export class EditMenuService {
         return this.http.get<EditMenu>(this.baseUrl+"/editmenu");
         
     }
+    deleteOrder(_id: number):Observable<void> {
+      console.log(this.baseUrl+"/editmenu/"+_id);
+      return this.http.delete<void>(this.baseUrl+"/editmenu/"+_id);
+    }
+    addingMenu(menu: EditMenu): Observable<EditMenu> {
+      console.log(menu);
+      return this.http.post<EditMenu>(this.baseUrl + "/addmenu", menu, { headers: this.headers });
+    }
 
  
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit} from '@angular/core';
 import { WelcomeService } from './welcome.service';
 import { Welcome } from './welcome';
+import { AppService } from '../admin/app.service';
 
 @Component({
     templateUrl: "./welcome.component.html",
@@ -9,11 +10,12 @@ import { Welcome } from './welcome';
 export class WelcomeComponent implements OnInit{
   
     orders: Welcome;
-    constructor(private restaurantService:WelcomeService) {}
+    constructor(private restaurantService:WelcomeService,public nav:AppService) {}
     ngOnInit() {
         this.restaurantService.orderDetails().subscribe((data)=>{
             this.orders=data;
             console.log(data);
+            this.nav.show();
         })
     }
 

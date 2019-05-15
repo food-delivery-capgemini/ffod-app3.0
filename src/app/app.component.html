@@ -7,10 +7,10 @@
   </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
-            <a class="nav-item nav-link active" routerLink="home">Home <span class="sr-only">(current)</span></a>
-            <a class="nav-item nav-link" routerLink="editmenu">Edit menu</a>
+            <a class="nav-item nav-link active" routerLink="home" *ngIf="nav.visible">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link" routerLink="editmenu" *ngIf="nav.visible">Edit menu</a>
             <a class="nav-item nav-link" routerLink="resturant/signup">Signup</a>
-            <a class="nav-item nav-link" href="#">Logout</a>
+            <a class="nav-item nav-link" routerLink="" (click)="loginService.logout()" *ngIf="nav.visible">Logout</a>
         </div>
     </div>
 </nav>
@@ -20,3 +20,5 @@
 <div class="container text-center">
     <router-outlet></router-outlet>
 </div>
+
+<!-- *ngIf="!loginservice.isUserLoggedIn()"  -->

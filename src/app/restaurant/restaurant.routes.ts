@@ -8,6 +8,7 @@ import { EditMenuComponent } from '../restaurant/editmenu.component';
 export const resturantRoutes: Routes = [
     {path: "editmenu", component: EditMenuComponent},
     {path: "home", component: WelcomeComponent},
+    {path: "editmenu/:_id", component: EditMenuComponent},
     {path:"resturant/login",component: RestaurantLoginComponent},
     {path:"resturant/signup",component: RestaurantRegistrationComponent},
     {path:"resturant/approval",component: RestaurantApproveComponent},

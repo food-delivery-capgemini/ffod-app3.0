@@ -33,7 +33,7 @@ import { EditMenuService } from './editmenu.service';
         RestaurantApproveComponent,
         WelcomeComponent,
         RouterModule,
-        EditMenuComponent
+        EditMenuComponent,
     ],
 
     providers: [RestaurantService,

@@ -8,6 +8,7 @@ import { appRoutes } from './app.routes';
 import { AdminModule } from 'src/app/admin/admin.module';
 import { RestaurantModule } from 'src/app/restaurant/restaurant.module';
 import { FormsModule } from '@angular/forms';
+import { AppService } from './admin/app.service';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,7 @@ import { FormsModule } from '@angular/forms';
     RestaurantModule,
     FormsModule
   ],
-  providers: [],
+  providers: [AppService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

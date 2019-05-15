@@ -67,6 +67,8 @@ import { Component } from '@angular/core'
 
 import { Restaurant } from './restaurant';
 import { RestaurantService } from './restaurant.service';
+import { AuthenticationService } from './user-authenticate.service';
+import { AppService } from '../admin/app.service';
 
 
 @Component({
@@ -74,8 +76,13 @@ import { RestaurantService } from './restaurant.service';
  styleUrls:["./restaurantLogin.component.css"]
 })
 export class RestaurantLoginComponent{
+
+    invalidLogin = false;
+
+
     user: Restaurant;
-    constructor(private userService: RestaurantService, private router:Router) {
+    constructor(private userService: RestaurantService, 
+        private loginservice: AuthenticationService, private router:Router,public nav:AppService) {
           
      }
     ngOnInit() {
@@ -94,7 +101,8 @@ export class RestaurantLoginComponent{
             console.log(data);
             if (data != null) {
                 // alert("done");
-                this.router.navigate(['/user/bookRide']);
+                this.invalidLogin = this.loginservice.authenticate(true,email);;
+                this.router.navigate(['/home']);
   
             }
         }, (err) => {
